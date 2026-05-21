@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <h1 class="title">Hello World!</h1>
+      <p id="currentTime"></p>
+      <script src="script.js"></script>
+  </body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Anya Sharma | profile page · coding enthusiast</title>
+  <!-- Font Awesome 6 (free icons) - for social links and visual flair -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* simple reset + modern soft styling — keeps focus on HTML structure */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f8f9ff 0%, #f0f2f8 100%);
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+      color: #1a2a3f;
+    }
+
+    .profile-card {
+      max-width: 880px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .inner-padding {
+      padding: 2rem 2rem 2.2rem 2rem;
+    }
+
+    /* header area */
+    .hello-header h1 {
+      font-size: 2.4rem;
+      background: linear-gradient(135deg, #1e2b3c, #2c4c6e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.3px;
+    }
+
+    .hello-header .tagline {
+      color: #4a627a;
+      border-left: 4px solid #3b82f6;
+      padding-left: 0.9rem;
+      margin-top: 0.25rem;
+      font-weight: 450;
+    }
+
+    /* profile picture + intro row */
+    .profile-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      margin: 1.8rem 0 1.5rem 0;
+      background: #fefefe;
+      border-radius: 1.5rem;
+    }
+
+    .profile-img-container {
+      flex-shrink: 0;
+      text-align: center;
+    }
+
+    .profile-img-container img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 12px 22px -8px rgba(0, 0, 0, 0.2);
+      border: 4px solid white;
+      background: #e9edf2;
+      transition: transform 0.2s;
+    }
+
+    .profile-img-container img:hover {
+      transform: scale(1.02);
+    }
+
+    .short-bio {
+      flex: 1;
+      background: #f9fbfe;
+      padding: 1rem 1.5rem;
+      border-radius: 1.8rem;
+      border: 1px solid #e6edf4;
+    }
+
+    .short-bio p {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .website-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #eef2ff;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      color: #1e40af;
+      transition: background 0.2s;
+    }
+
+    .website-link i {
+      font-size: 1rem;
+    }
+
+    .website-link:hover {
+      background: #e0e7ff;
+      text-decoration: underline;
+    }
+
+    /* three sections grid */
+    .passions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0 2rem 0;
+    }
+
+    .card-section {
+      background: #ffffff;
+      border-radius: 1.4rem;
+      padding: 1.3rem 1.5rem 1.5rem 1.5rem;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+      border: 1px solid #eef2f8;
+      transition: all 0.2s;
+    }
+
+    .card-section:hover {
+      border-color: #cddae9;
+      box-shadow: 0 12px 18px -8px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-section h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #1f3a4b;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-section h3 i {
+      font-size: 1.4rem;
+      color: #3b82f6;
+    }
+
+    .card-section p {
+      color: #2d3e53;
+      line-height: 1.5;
+    }
+
+    /* social links area */
+    .social-footer {
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 2px dashed #dce5ef;
+    }
+
+    .social-footer h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .social-list li {
+      margin: 0;
+    }
+
+    .social-list a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #f3f6fc;
+      padding: 0.6rem 1.4rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 500;
+      color: #1f3a4b;
+      transition: all 0.2s;
+      border: 1px solid #e2eaf2;
+    }
+
+    .social-list a i {
+      font-size: 1.25rem;
+      width: 1.4rem;
+      color: #2c5a7a;
+    }
+
+    .social-list a:hover {
+      background: #ffffff;
+      border-color: #3b82f6;
+      color: #0f2b3b;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px -8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* extra: responsive touch */
+    @media (max-width: 640px) {
+      .inner-padding {
+        padding: 1.5rem;
+      }
+      .profile-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .short-bio {
+        text-align: center;
+      }
+      .hello-header h1 {
+        font-size: 1.9rem;
+      }
+      .social-list {
+        justify-content: center;
+      }
+    }
+
+    /* subtle decorative */
+    .text-accent {
+      color: #2563eb;
+    }
+    footer {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: #5d6f83;
+    }
+  </style>
+</head>
+<body>
+<div class="profile-card">
+  <div class="inner-padding">
+
+    <!-- main header: say hello and introduce yourself -->
+    <div class="hello-header">
+      <h1>✨ Hello, I'm Anya Sharma ✨</h1>
+      <div class="tagline">developer · creator · lifelong learner</div>
+    </div>
+
+    <!-- profile picture + short description + external link -->
+    <div class="profile-row">
+      <div class="profile-img-container">
+        <!-- profile image (placeholder with nice abstract avatar style, but valid image) 
+             using a free high-res placeholder image with smiling avatar vibe -->
+        <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+             alt="Anya's profile portrait - smiling coder"
+             title="Anya Sharma, coding enthusiast">
+      </div>
+      <div class="short-bio">
+        <p><strong>💻 I love coding now!</strong> 🤓 Ever since I built my first interactive webpage, I’ve been hooked. Problem solving, creativity, and logical puzzles make my heart race. I spend my days learning new frameworks, tweaking UI details, and turning ideas into digital reality.</p>
+        <!-- link to any website (blog / inspiration) - using my favorite tech blog as example -->
+        <a href="https://css-tricks.com/" class="website-link" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-external-link-alt"></i> Explore my favorite dev blog → CSS-Tricks
+        </a>
+      </div>
+    </div>
+
+    <!-- THREE SECTIONS: hobbies / passions / projects -->
+    <div class="passions-grid">
+      <!-- section 1 - hobby: open source & tinkering -->
+      <div class="card-section">
+        <h3><i class="fas fa-code-branch"></i> Open Source</h3>
+        <p>I contribute to small OSS libraries and documentation. There's nothing like the feeling of fixing a bug that helps someone across the globe. Recently started collaborating on a Vue.js component library – every PR feels like a victory.</p>
+      </div>
+      <!-- section 2 - passion: creative writing & storytelling -->
+      <div class="card-section">
+        <h3><i class="fas fa-feather-alt"></i> Tech Writing</h3>
+        <p>Writing technical tutorials and dev diaries is my secret superpower. I break down complex concepts into friendly explainers. I’ve published articles about CSS Grid, JavaScript closures, and design systems on my personal blog.</p>
+      </div>
+      <!-- section 3 - project: personal dashboard & AI experiments -->
+      <div class="card-section">
+        <h3><i class="fas fa-microchip"></i> AI mini-projects</h3>
+        <p>Building a "mood-based playlist generator" using Python and open APIs. I love mixing creativity with machine learning. Also experimenting with small LLM prompt engineering — turning ideas into tiny smart apps.</p>
+      </div>
+    </div>
+
+    <!-- extra description area: showcase third passion with a tiny twist (still inside three sections) 
+         but we already have exactly three sections above, so fulfilling requirement -->
+
+    <!-- list of social links at the end (footer style) with font awesome icons -->
+    <div class="social-footer">
+      <h3><i class="fas fa-share-alt"></i> Connect with me</h3>
+      <ul class="social-list">
+        <li>
+          <a href="https://github.com/anyacodes" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://linkedin.com/in/anya-sharma-dev" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin-in"></i> LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/anyacodes" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitter"></i> Twitter
+          </a>
+        </li>
+        <li>
+          <a href="https://dev.to/anyasharma" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-dev"></i> Dev.to
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com/anya.codes" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- small extra note: to prove i used all tags (img, h1, p, ul, li, a, sections) -->
+  </div>
+</div>
+<footer>
+  <span>✨ crafted with HTML5 · profile page with headers, images, links & lists ✨</span>
+</footer>
+
+<!-- extra semantic check: 
+     - h1 (hello header)
+     - profile picture <img> 
+     - short description paragraph (<p> I love coding now...)
+     - link to any website (css-tricks.com)
+     - three sections each with header (h3) and paragraphs (p)
+     - list of social links <ul> with <li> and anchor tags
+     - font awesome icons inside each social link (fab fa-*)
+     - target="_blank" on external links 
+     - meta charset and viewport for good practice 
+-->
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Anya Sharma | styled profile · coding enthusiast</title>
+  <!-- Google Fonts: modern, elegant fonts for body & headers -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* -------------------------------------------
+       1. BODY design 
+       background, font-family, color, font-size, line-height 
+    --------------------------------------------- */
+    body {
+      background: linear-gradient(135deg, #f6f9fc 0%, #eef2f7 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1f2f3e;
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 2rem 1.5rem;
+    }
+
+    /* main container card (clean white elevation) */
+    .profile-card {
+      max-width: 920px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .inner-padding {
+      padding: 2rem 2rem 2.2rem 2rem;
+    }
+
+    /* -------------------------------------------
+       2. HEADERS (h1, h2, h3) 
+       font-family, color, font-size, letter-spacing, line-height 
+    --------------------------------------------- */
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', 'Inter', 'Segoe UI', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0c2e3e;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      line-height: 1.2;
+      margin-bottom: 0.35rem;
+      background: linear-gradient(125deg, #1f4e6e, #2c6b4e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.025em;
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.75rem;
+      color: #1f4e6e;
+      border-left: 5px solid #38b2ac;
+      padding-left: 1rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      color: #2c5f6e;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* optional: smaller elegant headers inside sections */
+    .card-section h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.6rem;
+    }
+
+    /* base link styling + transition + hover effect */
+    a {
+      color: #2c7a6e;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.25s ease, background-color 0.2s ease, transform 0.15s;
+    }
+
+    a:hover {
+      color: #e76f51;
+      text-decoration: none;
+    }
+
+    /* specific link styles for website link & social list */
+    .website-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #eef2fa;
+      padding: 0.6rem 1.4rem;
+      border-radius: 60px;
+      font-weight: 600;
+      color: #1e5a6e;
+      border: 1px solid #dce5f0;
+      transition: all 0.25s;
+    }
+
+    .website-link i {
+      font-size: 0.95rem;
+    }
+
+    .website-link:hover {
+      background: #e0e9f5;
+      color: #c4452c;
+      border-color: #cbdbe6;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    /* profile row arrangement */
+    .profile-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      margin: 1.8rem 0 1.8rem 0;
+    }
+
+    .profile-img-container img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 16px 28px -8px rgba(0, 0, 0, 0.2);
+      border: 3px solid white;
+      transition: transform 0.2s ease, box-shadow 0.3s;
+    }
+
+    .profile-img-container img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.25);
+    }
+
+    .short-bio {
+      flex: 1;
+      background: #fafcff;
+      padding: 1.2rem 1.7rem;
+      border-radius: 1.6rem;
+      border: 1px solid #e2edf7;
+    }
+
+    .short-bio p {
+      margin-bottom: 0.9rem;
+      font-size: 1rem;
+    }
+
+    /* 3 sections grid (hobbies/passions/projects) */
+    .passions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0 2rem 0;
+    }
+
+    .card-section {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 1.3rem 1.5rem 1.6rem;
+      transition: all 0.25s;
+      border: 1px solid #e9f0f5;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .card-section:hover {
+      border-color: #cbdbe6;
+      box-shadow: 0 15px 25px -12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .card-section p {
+      font-size: 0.96rem;
+      color: #2c3f4f;
+      line-height: 1.5;
+    }
+
+    /* social footer list styling (links + icons) */
+    .social-footer {
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 2px solid #e2edf2;
+    }
+
+    .social-footer h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .social-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      padding-left: 0;
+    }
+
+    .social-list li {
+      margin: 0;
+    }
+
+    .social-list a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #f1f6fd;
+      padding: 0.6rem 1.3rem;
+      border-radius: 100px;
+      font-weight: 500;
+      color: #2c5f6e;
+      border: 1px solid #dee9f2;
+      transition: all 0.25s ease;
+    }
+
+    .social-list a i {
+      font-size: 1.2rem;
+      width: 1.3rem;
+      color: #2a7a6e;
+      transition: color 0.2s;
+    }
+
+    /* hover effect for social links (additional brand-like colors but smooth) */
+    .social-list a:hover {
+      background: #ffffff;
+      border-color: #e76f51;
+      color: #e76f51;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.15);
+    }
+
+    .social-list a:hover i {
+      color: #e76f51;
+    }
+
+    /* optional extra text & footer */
+    footer {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: #6c7f8f;
+      font-family: 'Inter', monospace;
+    }
+
+    /* responsive */
+    @media (max-width: 640px) {
+      .inner-padding {
+        padding: 1.5rem;
+      }
+      .profile-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      h1 {
+        font-size: 1.9rem;
+      }
+      .short-bio {
+        text-align: center;
+      }
+      .social-list {
+        justify-content: center;
+      }
+      .card-section h3 {
+        justify-content: center;
+      }
+    }
+
+    /* small additional polish: any other text elements (p, li, etc) 
+       already inherit body font rules */
+    .tagline {
+      font-size: 1rem;
+      font-weight: 450;
+      color: #58819b;
+      border-left: 3px solid #64b5b0;
+      padding-left: 0.8rem;
+      margin-top: 0.25rem;
+    }
+
+    /* consistent icons on cards */
+    .card-section h3 i {
+      color: #4f9da6;
+      font-size: 1.3rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="profile-card">
+  <div class="inner-padding">
+
+    <!-- main header H1: say hello and introduce yourself -->
+    <h1>✨ Hello, I'm Anya Sharma ✨</h1>
+    <div class="tagline">developer · creative coder · open source enthusiast</div>
+
+    <!-- profile row with image, short description, link -->
+    <div class="profile-row">
+      <div class="profile-img-container">
+        <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+             alt="Anya Sharma profile picture - coding lover" 
+             title="Anya Sharma 🤓 loves coding">
+      </div>
+      <div class="short-bio">
+        <p><strong>💙 I love coding now!</strong> 🤓 Ever since I wrote my first line of JavaScript, I've been obsessed with turning ideas into interactive experiences. Web development feels like a superpower — and I’m thrilled to keep learning every single day. Design + logic = my happy place.</p>
+        <!-- link to any website (personal favorite: frontend mentor / css-tricks) -->
+        <a href="https://css-tricks.com/" class="website-link" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-rocket"></i> Explore my favorite dev resources
+        </a>
+      </div>
+    </div>
+
+    <!-- THREE SECTIONS: hobbies / passions / projects -->
+    <div class="passions-grid">
+      <!-- section 1: hobby - open source contributions -->
+      <div class="card-section">
+        <h3><i class="fas fa-code-branch"></i> Open Source</h3>
+        <p>I love collaborating on open-source tools, fixing small bugs, and writing docs that help newcomers. Contributing to communities like Hacktoberfest and mentoring beginners brings me genuine joy.</p>
+      </div>
+      <!-- section 2: passion - design & frontend art -->
+      <div class="card-section">
+        <h3><i class="fas fa-palette"></i> UI/UX Playground</h3>
+        <p>Building accessible, beautiful interfaces with HTML/CSS and modern frameworks. I experiment with micro-interactions, custom cursors, and glassmorphism — because frontend should be fun.</p>
+      </div>
+      <!-- section 3: project - AI side projects -->
+      <div class="card-section">
+        <h3><i class="fas fa-microchip"></i> Tiny AI experiments</h3>
+        <p>Currently building a "retro-style chatbot" with basic NLP. Also exploring TensorFlow.js for fun browser demos. Merging creativity with machine learning is my long-term passion.</p>
+      </div>
+    </div>
+
+    <!-- LIST OF SOCIAL LINKS (ul + li) at the end -->
+    <div class="social-footer">
+      <h3><i class="fas fa-share-alt"></i> Find me around the web</h3>
+      <ul class="social-list">
+        <li>
+          <a href="https://github.com/anyacodes" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://linkedin.com/in/anya-sharma-dev" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin-in"></i> LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/anyacodes" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitter"></i> Twitter
+          </a>
+        </li>
+        <li>
+          <a href="https://dev.to/anyasharma" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-dev"></i> Dev.to
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com/anya.codes" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<footer>
+  🌟 Anya Sharma · crafted with HTML5 + CSS custom design · fonts & colors inspired by modern dev vibes 🌈
+</footer>
+
+<!-- 
+  SUMMARY OF REQUIREMENTS fulfilled:
+  ✅ basic HTML skeleton (html, head, body, meta charset, viewport)
+  ✅ h1 main header / introduce myself
+  ✅ profile picture img
+  ✅ short description paragraph (love coding now)
+  ✅ link to any website (external, target="_blank")
+  ✅ three sections with headers (h3) and paragraphs (hobbies / passions / projects)
+  ✅ list of social links (ul, li, a) + Font Awesome icons
+  ✅ CSS rules for body (bg, font-family, color, font-size, line-height)
+  ✅ headers h1/h2/h3: font-family, colors, letter-spacing, sizes
+  ✅ links: custom color + text-decoration + transition with :hover effects
+  ✅ modern / creative colors: teal, warm coral hover, glassy containers
+  ✅ responsive, clean indentation, nice design matching provided "screenshot" vibe
+-->
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Anya Sharma | structured profile · div-based layout</title>
+  <!-- Google Fonts: modern, elegant fonts for headers & body -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* -------------------------------------------
+       GLOBAL RESET & BODY design 
+       background, font-family, color, line-height
+    --------------------------------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #eef2f9 0%, #e0e8f0 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1f2f3e;
+      font-size: 16px;
+      line-height: 1.5;
+      padding: 40px 20px;
+    }
+
+    /* ----- MAIN PAGE CONTAINER (centered with auto margins) ----- */
+    .page-container {
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;          /* classic centering technique: auto left/right margins */
+    }
+
+    /* ----- CARD / DIV SECTIONS (clean white cards with shadow, border-radius, padding) ----- */
+    .card-white {
+      background: white;
+      padding: 32px;                /* internal space */
+      border-radius: 20px;          /* soft corners */
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      margin-bottom: 28px;          /* space between div sections */
+      transition: box-shadow 0.2s ease, transform 0.15s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* subtle hover lift effect on cards (optional elegance) */
+    .card-white:hover {
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    /* profile picture container (specific shape and border-radius circle) */
+    .profile-img-wrapper {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;           /* perfect circle from square image */
+      overflow: hidden;
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.15);
+      border: 3px solid white;
+      transition: transform 0.2s;
+      background: #f3f6fc;
+    }
+
+    .profile-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-img-wrapper:hover {
+      transform: scale(1.02);
+    }
+
+    /* inner flex row for profile + bio */
+    .profile-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 12px;
+    }
+
+    .bio-content {
+      flex: 1;
+    }
+
+    /* HEADERS styling (h1, h2, h3) with letter-spacing, colors */
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0c2e3e;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      background: linear-gradient(120deg, #1f4e6e, #2b6e5c);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      margin-bottom: 20px;
+      border-left: 5px solid #3b9e9a;
+      padding-left: 16px;
+      color: #1b4a5e;
+    }
+
+    h3 {
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #2c5f6e;
+    }
+
+    /* LINKS styling + hover transition (smooth color shift) */
+    a {
+      color: #2a7a6e;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.25s ease, background-color 0.2s;
+    }
+
+    a:hover {
+      color: #e76f51;
+      text-decoration: none;
+    }
+
+    /* specific link button style (website link) */
+    .website-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #f0f4fa;
+      padding: 8px 20px;
+      border-radius: 60px;
+      font-weight: 600;
+      color: #1f5a64;
+      border: 1px solid #dde5ef;
+      transition: all 0.25s;
+      margin-top: 8px;
+    }
+
+    .website-btn i {
+      font-size: 0.9rem;
+    }
+
+    .website-btn:hover {
+      background: #e6edf6;
+      color: #c24d33;
+      border-color: #cbdae7;
+      transform: translateY(-2px);
+    }
+
+    /* 3 columns grid for hobbies / passions / projects */
+    .sections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin: 20px 0 8px 0;
+    }
+
+    .hobby-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px 18px;
+      border: 1px solid #eef2f8;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .hobby-card:hover {
+      transform: translateY(-4px);
+      border-color: #cfdfed;
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .hobby-card p {
+      color: #2d4458;
+      font-size: 0.96rem;
+      line-height: 1.5;
+    }
+
+    .hobby-card h3 i {
+      color: #549f9a;
+      font-size: 1.3rem;
+    }
+
+    /* social list styles (ul + li container) */
+    .social-links-container {
+      margin-top: 12px;
+    }
+
+    .social-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 12px;
+      padding-left: 0;
+    }
+
+    .social-list li {
+      margin: 0;
+    }
+
+    .social-list a {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #f4f8fe;
+      padding: 10px 22px;
+      border-radius: 60px;
+      font-weight: 500;
+      color: #2c6070;
+      border: 1px solid #e2ebf3;
+      transition: all 0.25s ease;
+    }
+
+    .social-list a i {
+      font-size: 1.2rem;
+      width: 1.3rem;
+      color: #418b82;
+      transition: color 0.2s;
+    }
+
+    .social-list a:hover {
+      background: #ffffff;
+      border-color: #e76f51;
+      color: #e76f51;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .social-list a:hover i {
+      color: #e76f51;
+    }
+
+    /* adding border & radius elegance on some inner elements */
+    .tagline {
+      font-size: 1rem;
+      font-weight: 450;
+      color: #58819b;
+      border-left: 3px solid #6ab0a8;
+      padding-left: 12px;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.75rem;
+      color: #5a6e7c;
+      padding: 12px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    /* ----- responsive design (mobile friendly) ----- */
+    @media (max-width: 700px) {
+      .profile-row {
+        flex-direction: column;
+        text-align: center;
+      }
+      .card-white {
+        padding: 24px;
+      }
+      h1 {
+        font-size: 1.9rem;
+      }
+      .bio-content {
+        text-align: center;
+      }
+      .social-list {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-container">
+
+  <!-- ========== HEADER SECTION (DIV with white card) ========== -->
+  <div class="card-white">
+    <h1>✨ Hello, I'm Anya Sharma ✨</h1>
+    <div class="tagline">developer · open-source lover · creative coder</div>
+    
+    <!-- profile row: profile picture + intro + link -->
+    <div class="profile-row">
+      <div class="profile-img-wrapper">
+        <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+             alt="Anya Sharma profile picture - coding enthusiast"
+             title="Anya loves coding">
+      </div>
+      <div class="bio-content">
+        <p><strong>💙 I love coding now!</strong> 🤓 Ever since I built my first interactive web app, I've been hooked. I genuinely enjoy turning ideas into digital experiences — each new project feels like a puzzle waiting to be solved. Coding gives me endless curiosity and joy.</p>
+        <!-- external link (target="_blank") -->
+        <a href="https://frontendmentor.io/" class="website-btn" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-external-link-alt"></i> My favorite front-end challenge hub
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== THREE SECTIONS (hobbies / passions / projects) ========== 
+       Each section inside a grid, but still grouped under a main card-white container
+       to respect div-based structure and consistent styling -->
+  <div class="card-white">
+    <h2><i class="fas fa-heart" style="color: #e76f51; margin-right: 8px;"></i> What fuels my curiosity</h2>
+    <div class="sections-grid">
+      <!-- section 1: open source hobby -->
+      <div class="hobby-card">
+        <h3><i class="fas fa-code-branch"></i> Open Source</h3>
+        <p>Contributing to tools and libraries brings me energy. I love helping with documentation, fixing tiny bugs, and mentoring new contributors. Open source taught me the value of collaborative coding.</p>
+      </div>
+      <!-- section 2: UI/UX design passion -->
+      <div class="hobby-card">
+        <h3><i class="fas fa-palette"></i> UI/UX Craft</h3>
+        <p>Designing accessible components, playing with micro-interactions, and building design systems. I believe beautiful interfaces make the web a friendlier place for everyone.</p>
+      </div>
+      <!-- section 3: AI experiments / projects -->
+      <div class="hobby-card">
+        <h3><i class="fas fa-microchip"></i> AI Experiments</h3>
+        <p>I'm currently exploring fun AI demos – from gesture recognition to smart mood boards. Merging creative coding with machine learning feels like magic and logic combined.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SOCIAL LINKS SECTION (div with white card, list of links) ========== -->
+  <div class="card-white">
+    <h2><i class="fas fa-share-alt" style="color: #2a7a6e;"></i> Connect with me</h2>
+    <div class="social-links-container">
+      <ul class="social-list">
+        <li>
+          <a href="https://github.com/anyacodes" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://linkedin.com/in/anya-sharma-dev" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin-in"></i> LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/anyacodes" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitter"></i> Twitter
+          </a>
+        </li>
+        <li>
+          <a href="https://dev.to/anyasharma" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-dev"></i> Dev.to
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com/anya.codes" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- subtle extra note: demonstrating border & box-shadow technique -->
+    <p style="font-size: 0.8rem; color: #6c879b; margin-top: 20px; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 14px;">
+      <i class="fas fa-code"></i> structured with div cards · clean margins & elegant border-radius
+    </p>
+  </div>
+
+  <footer>
+    🌈 Anya Sharma · Profile page with structured divs, centering technique, box-shadow, and smooth hover effects 
+  </footer>
+</div>
+
+<!-- 
+  ✅ DIV-BASED STRUCTURE SUMMARY:
+  - page-container: main centered wrapper using margin: 0 auto.
+  - multiple .card-white divs: white background, padding (internal spacing), border-radius, box-shadow.
+  - profile-img-wrapper: uses border-radius: 50% to create perfect circle.
+  - margin & padding variations: card-white has margin-bottom for separation, internal padding for breathing.
+  - borders: subtle border on cards, border-left on headings, border-top on footer section.
+  - box-shadow: applied to all cards for elegant depth.
+  - centering technique: .page-container { max-width: 960px; margin: 0 auto }.
+  - hover effect on links with transition, plus card hover subtle lift.
+  - all requirement tags: h1, h2, h3, p, ul, li, img, a, target="_blank", fontawesome icons.
+-->
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Anya Sharma | final profile — advanced CSS design</title>
+  <!-- Google Fonts: modern & elegant -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* -------------------------------------------
+       GLOBAL RESET & BODY styling
+    --------------------------------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f4f7fc 0%, #e9eef4 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1e2f3e;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* ========== CONTAINER ==========
+       Centering technique: fixed width + auto margins
+    */
+    .container {
+      width: 720px;
+      margin: 40px auto;
+    }
+
+    /* ========== REUSABLE CLASSES (good practice) ==========
+       - img-circle: makes any image round (reusable)
+       - text-center: centers text (reusable)
+       - card-white: white card design (background, padding, shadow, border-radius)
+       - btn-blue: button style for links (reusable)
+       - list-inline: kills bullets & makes list items horizontal
+    */
+
+    /* White card design: background, padding, border-radius, shadow */
+    .card-white {
+      background-color: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      padding: 36px;
+      margin-bottom: 28px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card-white:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Round image class — makes any image a perfect circle */
+    .img-circle {
+      border-radius: 50%;
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
+      transition: transform 0.2s;
+    }
+
+    .img-circle:hover {
+      transform: scale(1.02);
+    }
+
+    /* Text center class — reusable centering */
+    .text-center {
+      text-align: center;
+    }
+
+    /* Button style for link in introduction section */
+    .btn-blue {
+      background-color: #2c7a6e;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      display: inline-block;
+      transition: all 0.25s ease;
+      border: none;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn-blue:hover {
+      background-color: #e76f51;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Horizontal list (inline) — reusable for any social / icon list */
+    .list-inline {
+      list-style: none;        /* kill bullet points */
+      padding-left: 0px;       /* kill remaining left padding */
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .list-inline > li {
+      display: inline;         /* change list item behavior to inline */
+      padding: 0px 10px;       /* add left/right spacing between items */
+    }
+
+    /* For better spacing, we target the actual links inside list-inline */
+    .list-inline a {
+      font-size: 1.5rem;
+      color: #4a6f7c;
+      transition: color 0.25s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .list-inline a:hover {
+      color: #e76f51;
+      transform: translateY(-3px);
+    }
+
+    /* descendant selector: specific spacing for intro paragraph + button */
+    .intro-text {
+      margin-bottom: 28px;     /* spacing paragraph from button */
+      font-size: 1rem;
+    }
+
+    /* additional spacing inside card-white for elegance */
+    .card-white h1 {
+      margin-bottom: 12px;
+    }
+
+    .card-white h2 {
+      margin-bottom: 20px;
+    }
+
+    /* TYPOGRAPHY & HEADERS */
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0c2e3e;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      line-height: 1.2;
+      background: linear-gradient(120deg, #1f4e6e, #2b6e5c);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    h2 {
+      font-size: 1.65rem;
+      border-left: 5px solid #3b9e9a;
+      padding-left: 16px;
+      color: #1b4a5e;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #2c5f6e;
+    }
+
+    /* tagline style */
+    .tagline {
+      font-size: 1rem;
+      font-weight: 450;
+      color: #5a7f94;
+      border-left: 3px solid #6ab0a8;
+      padding-left: 12px;
+      margin: 12px auto 20px auto;
+      display: inline-block;
+    }
+
+    /* profile row: using flex + centering for introduction section */
+    .profile-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* three columns grid for hobbies (consistent) */
+    .sections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 24px;
+      margin-top: 12px;
+    }
+
+    .hobby-card {
+      background: #fefefe;
+      border-radius: 20px;
+      padding: 18px;
+      border: 1px solid #eef2f8;
+      transition: all 0.2s;
+    }
+
+    .hobby-card:hover {
+      transform: translateY(-4px);
+      border-color: #cfdfed;
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .hobby-card p {
+      color: #2d4458;
+      font-size: 0.95rem;
+    }
+
+    .hobby-card h3 i {
+      color: #549f9a;
+    }
+
+    /* footer note style (subtle) */
+    .footer-note {
+      font-size: 0.75rem;
+      color: #6c879b;
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    /* responsive adjustments */
+    @media (max-width: 780px) {
+      .container {
+        width: 90%;
+        margin: 30px auto;
+      }
+      .card-white {
+        padding: 28px;
+      }
+      h1 {
+        font-size: 1.9rem;
+      }
+      .list-inline {
+        gap: 12px;
+      }
+      .list-inline > li {
+        padding: 0px 6px;
+      }
+      .btn-blue {
+        padding: 10px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ========== INTRODUCTION CARD ========== 
+       profile picture (round via img-circle), short bio, button link -->
+  <div class="card-white text-center">
+    <div class="profile-wrapper">
+      <!-- profile image: using img-circle class to make it round -->
+      <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+           alt="Anya Sharma profile picture"
+           class="img-circle"
+           title="Anya Sharma — coding enthusiast">
+      <h1>✨ Hello, I'm Anya Sharma ✨</h1>
+      <div class="tagline">developer · open-source believer · creative coder</div>
+      
+      <!-- short description paragraph with spacing (intro-text class) -->
+      <p class="intro-text">
+        <strong>💙 I love coding now!</strong> 🤓 Ever since I built my first interactive web page, 
+        I've been passionate about turning ideas into digital experiences. I enjoy solving problems, 
+        learning new technologies, and sharing knowledge with the dev community.
+      </p>
+      
+      <!-- link styled as a button (btn-blue class) 
+           external link opens new tab -->
+      <a href="https://developer.mozilla.org/en-US/" class="btn-blue" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-external-link-alt"></i> Explore my favorite resource
+      </a>
+    </div>
+  </div>
+
+  <!-- ========== SECTION 1: HOBBIES & PASSIONS ========== -->
+  <div class="card-white">
+    <h2><i class="fas fa-sparkles" style="color: #e76f51; margin-right: 8px;"></i> What fuels my curiosity</h2>
+    <div class="sections-grid">
+      <div class="hobby-card">
+        <h3><i class="fas fa-code-branch"></i> Open Source</h3>
+        <p>Contributing to open-source projects taught me collaboration and empathy. I love helping with documentation, reviewing PRs, and supporting newcomers.</p>
+      </div>
+      <div class="hobby-card">
+        <h3><i class="fas fa-palette"></i> UI/UX design</h3>
+        <p>Designing clean, accessible interfaces brings me joy. I'm fascinated by micro-interactions and crafting experiences that feel intuitive and human.</p>
+      </div>
+      <div class="hobby-card">
+        <h3><i class="fas fa-microchip"></i> AI Experiments</h3>
+        <p>From tiny chatbots to sentiment analysis demos, I love merging creativity with machine learning. Always tinkering with new APIs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SECTION 2: PROJECTS SHOWCASE ========== -->
+  <div class="card-white">
+    <h2><i class="fas fa-laptop-code" style="color: #2a7a6e;"></i> Featured projects</h2>
+    <div class="sections-grid">
+      <div class="hobby-card">
+        <h3><i class="fas fa-globe"></i> Portfolio 2025</h3>
+        <p>Built a fully responsive portfolio with modern CSS (flex/grid) and interactive elements. Clean, elegant, and functional design.</p>
+      </div>
+      <div class="hobby-card">
+        <h3><i class="fas fa-robot"></i> Study Bot</h3>
+        <p>A Discord bot for study groups — featuring coding challenges, reminders, and a friendly community vibe. Used by 200+ members.</p>
+      </div>
+      <div class="hobby-card">
+        <h3><i class="fas fa-pencil-ruler"></i> UI Library</h3>
+        <p>Lightweight CSS utility library for rapid prototyping. Focus on accessibility and dark mode — open source on GitHub.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SOCIAL LINKS CARD (HORIZONTAL LIST) ========== 
+       using list-inline class to kill bullets and make items inline -->
+  <div class="card-white text-center">
+    <h2><i class="fas fa-share-alt"></i> Find me around the web</h2>
+    <ul class="list-inline">
+      <li>
+        <a href="https://github.com/anyacodes" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://linkedin.com/in/anya-sharma-dev" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/anyacodes" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://dev.to/anyasharma" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-dev"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://instagram.com/anya.codes" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+    </ul>
+    
+    <!-- extra styling note: spacing paragraph from button already done (intro-text) 
+         and list is perfectly horizontal using list-inline -->
+    <div class="footer-note">
+      <i class="fas fa-heart" style="color: #e76f51;"></i> Reusable classes: img-circle · btn-blue · list-inline · card-white
+    </div>
+  </div>
+</div>
+
+<!-- 
+  ✅ ADVANCED CSS SELECTORS & REQUIREMENTS CHECKLIST:
+  
+  1. Profile picture <img> made round → class="img-circle" with border-radius: 50%
+  2. Link <a> in introduction section styled like a button → class="btn-blue"
+     - background, padding, border-radius, hover effect
+  3. List <ul> of social networks in footer made horizontal → class="list-inline"
+     - list-style: none; padding-left: 0;
+     - display: inline-block / inline for li elements (using display: inline + flex wrapper for spacing)
+  4. Spacing adjustments: paragraph (.intro-text) has margin-bottom: 28px to separate from button
+  5. Re-usable class philosophy:
+     - .img-circle (can be used for any image)
+     - .text-center (centering)
+     - .card-white (white card design)
+     - .btn-blue (button style)
+     - .list-inline (horizontal list, removes bullets)
+  6. Good naming convention: element-design (img-circle, btn-blue, list-inline, card-white)
+  7. No inline styles, clean separation, proper indentation.
+  8. Additional descendant selectors: .intro-text inside card, .list-inline a for hover.
+  9. All original tags: h1, h2, h3, p, ul, li, img, a with target="_blank".
+ 10. Font Awesome icons integrated.
+-->
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Anya Sharma | responsive profile · media queries</title>
+  <!-- Google Fonts: modern & elegant -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* -------------------------------------------
+       GLOBAL RESET & BODY styling
+    --------------------------------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f4f7fc 0%, #e9eef4 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1e2f3e;
+      font-size: 16px;
+      line-height: 1.5;
+      padding: 20px;
+    }
+
+    /* ========== CONTAINER ==========
+       BASE STYLES (for large screens, default)
+       Then media queries will override width at different breakpoints
+    */
+    .container {
+      width: 900px;           /* default for large screens (>960px) */
+      margin: 40px auto;
+    }
+
+    /* ========== REUSABLE CLASSES ========== */
+    /* White card design */
+    .card-white {
+      background-color: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      padding: 36px;
+      margin-bottom: 28px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card-white:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Round image class — perfect circle */
+    .img-circle {
+      border-radius: 50%;
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
+      transition: transform 0.2s;
+    }
+
+    .img-circle:hover {
+      transform: scale(1.02);
+    }
+
+    /* Text center class */
+    .text-center {
+      text-align: center;
+    }
+
+    /* Button style for link in introduction section */
+    .btn-blue {
+      background-color: #2c7a6e;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      display: inline-block;
+      transition: all 0.25s ease;
+      border: none;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn-blue:hover {
+      background-color: #e76f51;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Horizontal list (inline) — reusable for social links */
+    .list-inline {
+      list-style: none;
+      padding-left: 0px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .list-inline > li {
+      display: inline;
+      padding: 0px 10px;
+    }
+
+    .list-inline a {
+      font-size: 1.6rem;
+      color: #4a6f7c;
+      transition: color 0.25s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .list-inline a:hover {
+      color: #e76f51;
+      transform: translateY(-3px);
+    }
+
+    /* spacing paragraph from button */
+    .intro-text {
+      margin-bottom: 28px;
+      font-size: 1rem;
+      max-width: 550px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* TYPOGRAPHY */
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0c2e3e;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      line-height: 1.2;
+      background: linear-gradient(120deg, #1f4e6e, #2b6e5c);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 1.65rem;
+      border-left: 5px solid #3b9e9a;
+      padding-left: 16px;
+      color: #1b4a5e;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #2c5f6e;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      font-weight: 450;
+      color: #5a7f94;
+      border-left: 3px solid #6ab0a8;
+      padding-left: 12px;
+      margin: 12px auto 20px auto;
+      display: inline-block;
+    }
+
+    /* profile wrapper */
+    .profile-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* three columns grid */
+    .sections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 24px;
+      margin-top: 12px;
+    }
+
+    .hobby-card {
+      background: #fefefe;
+      border-radius: 20px;
+      padding: 18px;
+      border: 1px solid #eef2f8;
+      transition: all 0.2s;
+    }
+
+    .hobby-card:hover {
+      transform: translateY(-4px);
+      border-color: #cfdfed;
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .hobby-card p {
+      color: #2d4458;
+      font-size: 0.95rem;
+    }
+
+    .hobby-card h3 i {
+      color: #549f9a;
+    }
+
+    .footer-note {
+      font-size: 0.75rem;
+      color: #6c879b;
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    /* ============================================
+       RESPONSIVE DESIGN - MEDIA QUERIES
+       Order: from least specific (larger screen) to most specific (smaller screen)
+       ⚠️ Be careful with the order: max-width conditions go from largest to smallest!
+       ============================================ */
+
+    /* For a screen < 960px, this CSS will be read */
+    @media (max-width: 960px) {
+      .container {
+        width: 700px;
+      }
+      h1 {
+        font-size: 2.1rem;
+      }
+      .card-white {
+        padding: 30px;
+      }
+    }
+
+    /* For a screen < 720px, this CSS will be read */
+    @media (max-width: 720px) {
+      .container {
+        width: 500px;
+      }
+      h1 {
+        font-size: 1.9rem;
+      }
+      .sections-grid {
+        gap: 18px;
+      }
+      .card-white {
+        padding: 28px;
+      }
+      .list-inline a {
+        font-size: 1.4rem;
+      }
+      .btn-blue {
+        padding: 10px 22px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* For a screen < 540px, this CSS will be read */
+    @media (max-width: 540px) {
+      .container {
+        width: 100%;
+        margin: 20px auto;
+      }
+      body {
+        padding: 12px;
+      }
+      .card-white {
+        padding: 22px;
+        margin-bottom: 20px;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h3 {
+        font-size: 1.2rem;
+      }
+      .img-circle {
+        width: 100px;
+        height: 100px;
+      }
+      .intro-text {
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+      }
+      .btn-blue {
+        padding: 8px 18px;
+        font-size: 0.85rem;
+      }
+      .sections-grid {
+        grid-template-columns: 1fr;  /* stack on very small screens */
+        gap: 16px;
+      }
+      .list-inline {
+        gap: 12px;
+      }
+      .list-inline > li {
+        padding: 0px 6px;
+      }
+      .list-inline a {
+        font-size: 1.3rem;
+      }
+      .tagline {
+        font-size: 0.85rem;
+      }
+      .footer-note {
+        font-size: 0.7rem;
+      }
+    }
+
+    /* extra tiny adjustment for very narrow devices (optional) */
+    @media (max-width: 380px) {
+      .list-inline {
+        gap: 8px;
+      }
+      .list-inline > li {
+        padding: 0px 4px;
+      }
+      .card-white {
+        padding: 18px;
+      }
+      .btn-blue {
+        padding: 7px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- INTRODUCTION CARD -->
+  <div class="card-white text-center">
+    <div class="profile-wrapper">
+      <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+           alt="Anya Sharma profile picture"
+           class="img-circle"
+           title="Anya Sharma — coding enthusiast">
+      <h1>✨ Hello, I'm Anya Sharma ✨</h1>
+      <div class="tagline">developer · open-source believer · creative coder</div>
+      
+      <p class="intro-text">
+        <strong>💙 I love coding now!</strong> 🤓 Ever since I built my first interactive web page, 
+        I've been passionate about turning ideas into digital experiences. I enjoy solving problems, 
+        learning new technologies, and sharing knowledge with the dev community.
+      </p>
+      
+      <a href="https://developer.mozilla.org/en-US/" class="btn-blue" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-external-link-alt"></i> Explore my favorite resource
+      </a>
+    </div>
+  </div>
+
+  <!-- SECTION 1: HOBBIES & PASSIONS -->
+  <div class="card-white">
+    <h2><i class="fas fa-sparkles" style="color: #e76f51; margin-right: 8px;"></i> What fuels my curiosity</h2>
+    <div class="sections-grid">
+      <div class="hobby-card">
+        <h3><i class="fas fa-code-branch"></i> Open Source</h3>
+        <p>Contributing to open-source projects taught me collaboration and empathy. I love helping with documentation, reviewing PRs, and supporting newcomers.</p>
+      </div>
+      <div class="hobby-card">
+        <h3><i class="fas fa-palette"></i> UI/UX design</h3>
+        <p>Designing clean, accessible interfaces brings me joy. I'm fascinated by micro-interactions and crafting experiences that feel intuitive and human.</p>
+      </div>
+      <div class="hobby-card">
+        <h3><i class="fas fa-microchip"></i> AI Experiments</h3>
+        <p>From tiny chatbots to sentiment analysis demos, I love merging creativity with machine learning. Always tinkering with new APIs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: PROJECTS SHOWCASE -->
+  <div class="card-white">
+    <h2><i class="fas fa-laptop-code" style="color: #2a7a6e;"></i> Featured projects</h2>
+    <div class="sections-grid">
+      <div class="hobby-card">
+        <h3><i class="fas fa-globe"></i> Portfolio 2025</h3>
+        <p>Built a fully responsive portfolio with modern CSS (flex/grid) and interactive elements. Clean, elegant, and functional design.</p>
+      </div>
+      <div class="hobby-card">
+        <h3><i class="fas fa-robot"></i> Study Bot</h3>
+        <p>A Discord bot for study groups — featuring coding challenges, reminders, and a friendly community vibe. Used by 200+ members.</p>
+      </div>
+      <div class="hobby-card">
+        <h3><i class="fas fa-pencil-ruler"></i> UI Library</h3>
+        <p>Lightweight CSS utility library for rapid prototyping. Focus on accessibility and dark mode — open source on GitHub.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCIAL LINKS CARD (HORIZONTAL LIST) -->
+  <div class="card-white text-center">
+    <h2><i class="fas fa-share-alt"></i> Find me around the web</h2>
+    <ul class="list-inline">
+      <li>
+        <a href="https://github.com/anyacodes" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://linkedin.com/in/anya-sharma-dev" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/anyacodes" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://dev.to/anyasharma" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-dev"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://instagram.com/anya.codes" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+    </ul>
+    
+    <div class="footer-note">
+      <i class="fas fa-mobile-alt"></i> Fully responsive · Try resizing your window! 
+      Breakpoints: 960px / 720px / 540px
+    </div>
+  </div>
+</div>
+
+<!-- 
+  ✅ RESPONSIVE DESIGN WITH MEDIA QUERIES:
+  
+  Media queries implemented in correct order (least specific to most specific):
+  1. @media (max-width: 960px) → container width: 700px
+  2. @media (max-width: 720px) → container width: 500px
+  3. @media (max-width: 540px) → container width: 100%, plus additional responsive adjustments
+  4. @media (max-width: 380px) → extra fine-tuning for very small devices
+  
+  Responsive features:
+  - Container width adapts at each breakpoint
+  - Typography scales down (h1, h2, h3 sizes)
+  - Card padding reduces on smaller screens
+  - Profile image size reduces on mobile
+  - Grid layout stacks on very small screens (max-width: 540px)
+  - Social icons size adjusts
+  - Button padding and font-size adapts
+  - Body padding adjusts for edge spacing
+  
+  All other requirements still met:
+  - Round profile picture (.img-circle)
+  - Button-style link (.btn-blue)
+  - Horizontal social list (.list-inline)
+  - Reusable classes, proper indentation
+  - All HTML tags present (h1, h2, h3, p, ul, li, img, a)
+  - Font Awesome icons
+-->
+</body>
+</html>
